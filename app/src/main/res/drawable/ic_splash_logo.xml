@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+    <!--
+      Icon-without-background size per the SplashScreen spec (240x240dp); artwork stays
+      within a ~160dp safe-zone circle centered on the canvas. A simple ring + dot mark
+      (background color supplied separately via windowSplashScreenBackground).
+    -->
+    <path
+        android:fillColor="#FF6650A4"
+        android:fillType="evenOdd"
+        android:pathData="M120,44 A76,76 0 1,1 120,196 A76,76 0 1,1 120,44 Z M120,84 A36,36 0 1,1 120,156 A36,36 0 1,1 120,84 Z" />
+    <path
+        android:fillColor="#FF7D5260"
+        android:pathData="M136,120 A16,16 0 1,1 104,120 A16,16 0 1,1 136,120 Z" />
+</vector>
