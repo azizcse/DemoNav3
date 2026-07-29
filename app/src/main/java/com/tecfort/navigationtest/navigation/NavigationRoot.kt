@@ -10,6 +10,10 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
@@ -21,6 +25,7 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import com.tecfort.navigationtest.ui.details.DetailsScreen
 import com.tecfort.navigationtest.ui.favorite.FavoriteScreen
 import com.tecfort.navigationtest.ui.home.HomeScreen
+import com.tecfort.navigationtest.ui.profilesetting.ProfileSettingScreen
 import com.tecfort.navigationtest.ui.review.ReviewScreen
 import com.tecfort.navigationtest.ui.setting.SettingScreen
 import com.tecfort.navigationtest.ui.splash.SplashScreen
@@ -46,6 +51,12 @@ fun NavigationRoot(
 ) {
     val backStack = rememberNavBackStack(Dest.Splash)
     val currentTop = TopLevelDestination.fromKey(backStack.lastOrNull())
+
+    // Nav 3 has no built-in "pass a result back" channel (unlike Navigation-Compose's
+    // SavedStateHandle result API), so the value ProfileSetting hands back to Setting is simply
+    // hoisted here, in the nearest composable both entries sit under, and threaded down as a
+    // parameter + callback. rememberSaveable keeps it across rotation and process death.
+    var profileDisplayName by rememberSaveable { mutableStateOf("") }
 
     // NavDisplay's own back handler is disabled when the stack has no previous
     // entries (i.e. at a tab root), so this handler is what fires there; once a
@@ -123,7 +134,20 @@ fun NavigationRoot(
                     FavoriteScreen()
                 }
                 entry<Dest.Setting> {
-                    SettingScreen()
+                    SettingScreen(
+                        profileDisplayName = profileDisplayName,
+                        onEditProfileClick = { backStack.add(Dest.ProfileSetting(profileDisplayName)) },
+                    )
+                }
+                entry<Dest.ProfileSetting> { key ->
+                    ProfileSettingScreen(
+                        initialDisplayName = key.currentDisplayName,
+                        onSave = { newDisplayName ->
+                            profileDisplayName = newDisplayName
+                            backStack.removeLastOrNull()
+                        },
+                        onBackClick = { backStack.removeLastOrNull() },
+                    )
                 }
                 flowScopedEntry<Dest.Details> { key ->
                     DetailsScreen(

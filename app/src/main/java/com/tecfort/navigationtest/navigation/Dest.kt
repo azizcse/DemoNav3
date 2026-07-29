@@ -30,6 +30,13 @@ sealed interface Dest : NavKey {
     @Serializable
     data object Setting : Dest
 
+    /**
+     * @param currentDisplayName the value Setting currently holds, shown pre-filled when this
+     *   screen opens - demonstrates passing a value forward, mirroring the value passed back.
+     */
+    @Serializable
+    data class ProfileSetting(val currentDisplayName: String) : Dest
+
     @Serializable
     data class Details(val itemId: Int, val title: String) : Dest, FlowScopedNavKey {
         override val scopeId: String get() = itemFlowScopeId(itemId)
