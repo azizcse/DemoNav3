@@ -121,7 +121,10 @@ fun NavigationRoot(
                     SettingScreen()
                 }
                 entry<Dest.Details> { key ->
-                    DetailsScreen(text = key.title)
+                    DetailsScreen(
+                        text = key.title,
+                        onBackClick = { backStack.removeLastOrNull() },
+                    )
                 }
             }
         )
