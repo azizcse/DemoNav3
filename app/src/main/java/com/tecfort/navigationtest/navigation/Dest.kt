@@ -4,6 +4,16 @@ import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 /**
+ * A [NavKey] that takes part in a shared "flow scope": all entries whose key reports the same
+ * [scopeId] share one [androidx.lifecycle.ViewModelStore], cleared once no entry with that
+ * [scopeId] remains on the back stack. See [flowScopedEntry] and
+ * [rememberFlowScopedViewModelStoreNavEntryDecorator].
+ */
+interface FlowScopedNavKey : NavKey {
+    val scopeId: String
+}
+
+/**
  * Nav 3 back-stack keys for this app.
  */
 sealed interface Dest : NavKey {
@@ -21,5 +31,14 @@ sealed interface Dest : NavKey {
     data object Setting : Dest
 
     @Serializable
-    data class Details(val itemId: Int, val title: String) : Dest
+    data class Details(val itemId: Int, val title: String) : Dest, FlowScopedNavKey {
+        override val scopeId: String get() = itemFlowScopeId(itemId)
+    }
+
+    @Serializable
+    data class Review(val itemId: Int) : Dest, FlowScopedNavKey {
+        override val scopeId: String get() = itemFlowScopeId(itemId)
+    }
 }
+
+internal fun itemFlowScopeId(itemId: Int): String = "item-flow-$itemId"

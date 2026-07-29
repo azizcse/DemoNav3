@@ -8,4 +8,7 @@ import kotlinx.coroutines.flow.Flow
  */
 interface ItemRepository {
     fun getItems(): Flow<List<Item>>
+
+    /** Emits the item with [id], or `null` if there is no such item. */
+    fun getItem(id: Int): Flow<Item?>
 }

@@ -53,5 +53,6 @@ class HomeViewModelTest {
 
     private class FakeItemRepository(private val items: List<Item>) : ItemRepository {
         override fun getItems(): Flow<List<Item>> = flowOf(items)
+        override fun getItem(id: Int): Flow<Item?> = flowOf(items.find { it.id == id })
     }
 }

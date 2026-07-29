@@ -21,6 +21,7 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import com.tecfort.navigationtest.ui.details.DetailsScreen
 import com.tecfort.navigationtest.ui.favorite.FavoriteScreen
 import com.tecfort.navigationtest.ui.home.HomeScreen
+import com.tecfort.navigationtest.ui.review.ReviewScreen
 import com.tecfort.navigationtest.ui.setting.SettingScreen
 import com.tecfort.navigationtest.ui.splash.SplashScreen
 
@@ -75,6 +76,10 @@ fun NavigationRoot(
             entryDecorators = listOf(
                 rememberSaveableStateHolderNavEntryDecorator(),
                 rememberViewModelStoreNavEntryDecorator(),
+                // MUST be last: decorators fold right-to-left, so this one wins
+                // LocalViewModelStoreOwner, and it only overrides entries carrying
+                // FlowScopeIdKey metadata (i.e. those registered via flowScopedEntry).
+                rememberFlowScopedViewModelStoreNavEntryDecorator(backStack),
             ),
             transitionSpec = {
                 slideIntoContainer(
@@ -120,9 +125,17 @@ fun NavigationRoot(
                 entry<Dest.Setting> {
                     SettingScreen()
                 }
-                entry<Dest.Details> { key ->
+                flowScopedEntry<Dest.Details> { key ->
                     DetailsScreen(
-                        text = key.title,
+                        itemId = key.itemId,
+                        title = key.title,
+                        onReviewClick = { backStack.add(Dest.Review(key.itemId)) },
+                        onBackClick = { backStack.removeLastOrNull() },
+                    )
+                }
+                flowScopedEntry<Dest.Review> { key ->
+                    ReviewScreen(
+                        itemId = key.itemId,
                         onBackClick = { backStack.removeLastOrNull() },
                     )
                 }
