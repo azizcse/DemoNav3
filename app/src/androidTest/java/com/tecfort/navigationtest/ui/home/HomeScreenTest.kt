@@ -1,4 +1,4 @@
-package com.tecfort.navigationtest.ui.list
+package com.tecfort.navigationtest.ui.home
 
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -8,7 +8,7 @@ import com.tecfort.navigationtest.data.model.Item
 import org.junit.Rule
 import org.junit.Test
 
-class ListScreenTest {
+class HomeScreenTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
@@ -19,8 +19,8 @@ class ListScreenTest {
         var clicked: Item? = null
 
         composeTestRule.setContent {
-            ListScreen(
-                uiState = ListUiState(items = items, isLoading = false),
+            HomeScreen(
+                uiState = HomeUiState(items = items, isLoading = false),
                 onItemClick = { clicked = it },
             )
         }

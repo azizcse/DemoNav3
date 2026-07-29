@@ -1,8 +1,8 @@
-package com.tecfort.navigationtest.ui.list
+package com.tecfort.navigationtest.ui.home
 
 import com.tecfort.navigationtest.data.model.Item
 
-data class ListUiState(
+data class HomeUiState(
     val items: List<Item> = emptyList(),
     val isLoading: Boolean = true,
 )

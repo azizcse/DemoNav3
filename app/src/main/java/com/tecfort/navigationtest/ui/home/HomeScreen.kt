@@ -1,4 +1,4 @@
-package com.tecfort.navigationtest.ui.list
+package com.tecfort.navigationtest.ui.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -18,13 +18,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tecfort.navigationtest.data.model.Item
 
 @Composable
-fun ListScreen(
+fun HomeScreen(
     onItemClick: (Item) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: ListViewModel = hiltViewModel(),
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    ListScreen(
+    HomeScreen(
         uiState = uiState,
         onItemClick = onItemClick,
         modifier = modifier,
@@ -32,8 +32,8 @@ fun ListScreen(
 }
 
 @Composable
-fun ListScreen(
-    uiState: ListUiState,
+fun HomeScreen(
+    uiState: HomeUiState,
     onItemClick: (Item) -> Unit,
     modifier: Modifier = Modifier,
 ) {

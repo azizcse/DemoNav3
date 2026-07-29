@@ -1,4 +1,4 @@
-package com.tecfort.navigationtest.ui.list
+package com.tecfort.navigationtest.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,15 +11,15 @@ import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
-class ListViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     repository: ItemRepository,
 ) : ViewModel() {
 
-    val uiState: StateFlow<ListUiState> = repository.getItems()
-        .map { items -> ListUiState(items = items, isLoading = false) }
+    val uiState: StateFlow<HomeUiState> = repository.getItems()
+        .map { items -> HomeUiState(items = items, isLoading = false) }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = ListUiState(),
+            initialValue = HomeUiState(),
         )
 }

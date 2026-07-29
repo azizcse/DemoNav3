@@ -1,4 +1,4 @@
-package com.tecfort.navigationtest.ui.list
+package com.tecfort.navigationtest.ui.home
 
 import com.tecfort.navigationtest.data.model.Item
 import com.tecfort.navigationtest.data.repository.ItemRepository
@@ -17,7 +17,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
-class ListViewModelTest {
+class HomeViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
 
@@ -34,7 +34,7 @@ class ListViewModelTest {
     @Test
     fun `uiState starts loading then emits the repository items`() = runTest {
         val fakeItems = List(50) { Item(id = it, title = "This is item number $it") }
-        val viewModel = ListViewModel(FakeItemRepository(fakeItems))
+        val viewModel = HomeViewModel(FakeItemRepository(fakeItems))
 
         assertTrue(viewModel.uiState.value.isLoading)
 

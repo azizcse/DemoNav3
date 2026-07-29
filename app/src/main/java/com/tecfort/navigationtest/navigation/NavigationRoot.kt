@@ -1,23 +1,38 @@
 package com.tecfort.navigationtest.navigation
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import com.tecfort.navigationtest.ui.details.DetailsScreen
-import com.tecfort.navigationtest.ui.list.ListScreen
+import com.tecfort.navigationtest.ui.favorite.FavoriteScreen
+import com.tecfort.navigationtest.ui.home.HomeScreen
+import com.tecfort.navigationtest.ui.setting.SettingScreen
 import com.tecfort.navigationtest.ui.splash.SplashScreen
 
 private const val SLIDE_DURATION_MS = 300
 
 /**
- * Hosts the app's Nav 3 back stack: splash -> list -> details.
+ * Hosts the app's Nav 3 back stack: splash -> {home, favorite, setting} -> details.
+ *
+ * The back stack root is always exactly one top-level tab. Tapping a bottom-bar
+ * tab collapses the stack down to that tab's root; system back from a non-Home
+ * tab root returns to Home, and back from Home exits the app. The bottom bar is
+ * shown for top-level tabs only - it is hidden on splash and on details.
  *
  * Forward navigation slides the new screen in from the right while the
  * previous screen slides out to the left; back navigation mirrors this,
@@ -29,58 +44,93 @@ fun NavigationRoot(
     modifier: Modifier = Modifier,
 ) {
     val backStack = rememberNavBackStack(Dest.Splash)
-    NavDisplay(
+    val currentTop = TopLevelDestination.fromKey(backStack.lastOrNull())
+
+    // NavDisplay's own back handler is disabled when the stack has no previous
+    // entries (i.e. at a tab root), so this handler is what fires there; once a
+    // child like Details is pushed, NavDisplay's handler is enabled and wins.
+    BackHandler(enabled = currentTop != null && currentTop != TopLevelDestination.HOME) {
+        backStack.replaceRoot(Dest.Home)
+    }
+
+    Scaffold(
         modifier = modifier,
-        backStack = backStack,
-        onBack = { backStack.removeLastOrNull() },
-        entryDecorators = listOf(
-            rememberSaveableStateHolderNavEntryDecorator(),
-            rememberViewModelStoreNavEntryDecorator(),
-        ),
-        transitionSpec = {
-            slideIntoContainer(
-                towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                animationSpec = tween(SLIDE_DURATION_MS),
-            ) togetherWith slideOutOfContainer(
-                towards = AnimatedContentTransitionScope.SlideDirection.Left,
-                animationSpec = tween(SLIDE_DURATION_MS),
-            )
-        },
-        popTransitionSpec = {
-            slideIntoContainer(
-                towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                animationSpec = tween(SLIDE_DURATION_MS),
-            ) togetherWith slideOutOfContainer(
-                towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                animationSpec = tween(SLIDE_DURATION_MS),
-            )
-        },
-        predictivePopTransitionSpec = {
-            slideIntoContainer(
-                towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                animationSpec = tween(SLIDE_DURATION_MS),
-            ) togetherWith slideOutOfContainer(
-                towards = AnimatedContentTransitionScope.SlideDirection.Right,
-                animationSpec = tween(SLIDE_DURATION_MS),
-            )
-        },
-        entryProvider = entryProvider {
-            entry<Dest.Splash> {
-                SplashScreen(
-                    onTimeout = {
-                        backStack.clear()
-                        backStack.add(Dest.List)
-                    }
+        bottomBar = {
+            AnimatedVisibility(
+                visible = currentTop != null,
+                enter = slideInVertically { it },
+                exit = slideOutVertically { it },
+            ) {
+                AppBottomBar(
+                    selected = currentTop,
+                    onTabClick = { top -> backStack.replaceRoot(top.dest) },
                 )
             }
-            entry<Dest.List> {
-                ListScreen(
-                    onItemClick = { item -> backStack.add(Dest.Details(item.id, item.title)) }
+        },
+    ) { innerPadding ->
+        NavDisplay(
+            modifier = Modifier.padding(innerPadding),
+            backStack = backStack,
+            onBack = { backStack.removeLastOrNull() },
+            entryDecorators = listOf(
+                rememberSaveableStateHolderNavEntryDecorator(),
+                rememberViewModelStoreNavEntryDecorator(),
+            ),
+            transitionSpec = {
+                slideIntoContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Left,
+                    animationSpec = tween(SLIDE_DURATION_MS),
+                ) togetherWith slideOutOfContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Left,
+                    animationSpec = tween(SLIDE_DURATION_MS),
                 )
+            },
+            popTransitionSpec = {
+                slideIntoContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Right,
+                    animationSpec = tween(SLIDE_DURATION_MS),
+                ) togetherWith slideOutOfContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Right,
+                    animationSpec = tween(SLIDE_DURATION_MS),
+                )
+            },
+            predictivePopTransitionSpec = {
+                slideIntoContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Right,
+                    animationSpec = tween(SLIDE_DURATION_MS),
+                ) togetherWith slideOutOfContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Right,
+                    animationSpec = tween(SLIDE_DURATION_MS),
+                )
+            },
+            entryProvider = entryProvider {
+                entry<Dest.Splash> {
+                    SplashScreen(
+                        onTimeout = { backStack.replaceRoot(Dest.Home) }
+                    )
+                }
+                entry<Dest.Home> {
+                    HomeScreen(
+                        onItemClick = { item -> backStack.add(Dest.Details(item.id, item.title)) }
+                    )
+                }
+                entry<Dest.Favorite> {
+                    FavoriteScreen()
+                }
+                entry<Dest.Setting> {
+                    SettingScreen()
+                }
+                entry<Dest.Details> { key ->
+                    DetailsScreen(text = key.title)
+                }
             }
-            entry<Dest.Details> { key ->
-                DetailsScreen(text = key.title)
-            }
-        }
-    )
+        )
+    }
+}
+
+/** Collapses the stack to a single top-level [dest]; no-op if already there alone. */
+private fun NavBackStack<NavKey>.replaceRoot(dest: Dest) {
+    if (size == 1 && lastOrNull() == dest) return
+    clear()
+    add(dest)
 }

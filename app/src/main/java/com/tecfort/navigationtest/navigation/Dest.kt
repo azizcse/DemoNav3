@@ -12,7 +12,13 @@ sealed interface Dest : NavKey {
     data object Splash : Dest
 
     @Serializable
-    data object List : Dest
+    data object Home : Dest
+
+    @Serializable
+    data object Favorite : Dest
+
+    @Serializable
+    data object Setting : Dest
 
     @Serializable
     data class Details(val itemId: Int, val title: String) : Dest
