@@ -1,6 +1,8 @@
 package com.tecfort.navigationtest.di
 
+import com.tecfort.navigationtest.data.repository.DefaultHealthConnectRepository
 import com.tecfort.navigationtest.data.repository.DefaultItemRepository
+import com.tecfort.navigationtest.data.repository.HealthConnectRepository
 import com.tecfort.navigationtest.data.repository.ItemRepository
 import dagger.Binds
 import dagger.Module
@@ -15,4 +17,8 @@ abstract class DataModule {
     @Binds
     @Singleton
     abstract fun bindItemRepository(impl: DefaultItemRepository): ItemRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindHealthConnectRepository(impl: DefaultHealthConnectRepository): HealthConnectRepository
 }
