@@ -15,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -120,11 +121,7 @@ fun NavigationRoot(
                 )
             },
             entryProvider = entryProvider {
-                entry<Dest.Splash> {
-                    SplashScreen(
-                        onTimeout = { backStack.replaceRoot(Dest.Home) }
-                    )
-                }
+                splashEntry(onTimeout = { backStack.replaceRoot(Dest.Home) })
                 entry<Dest.Home> {
                     HomeScreen(
                         onItemClick = { item -> backStack.add(Dest.Details(item.id, item.title)) }
@@ -174,3 +171,11 @@ private fun NavBackStack<NavKey>.replaceRoot(dest: Dest) {
     clear()
     add(dest)
 }
+
+/**
+ * Registers the splash entry via the [EntryProviderScope] builder, mirroring [flowScopedEntry]:
+ * a small named function instead of an inline lambda, so [NavigationRoot]'s entryProvider block
+ * stays a flat list of one-liners.
+ */
+private fun EntryProviderScope<NavKey>.splashEntry(onTimeout: () -> Unit) =
+    entry<Dest.Splash> { SplashScreen(onTimeout = onTimeout) }
