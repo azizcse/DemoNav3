@@ -34,12 +34,14 @@ import com.tecfort.navigationtest.ui.splash.SplashScreen
 private const val SLIDE_DURATION_MS = 300
 
 /**
- * Hosts the app's Nav 3 back stack: splash -> {home, favorite, setting} -> details.
+ * Hosts the app's Nav 3 back stack: splash -> {home, favorite, setting} -> details, plus the
+ * profile-setting and account-security ([AccountDest]) screens pushed from the setting tab.
  *
  * The back stack root is always exactly one top-level tab. Tapping a bottom-bar
  * tab collapses the stack down to that tab's root; system back from a non-Home
  * tab root returns to Home, and back from Home exits the app. The bottom bar is
- * shown for top-level tabs only - it is hidden on splash and on details.
+ * shown for top-level tabs only - it is hidden on splash, on details, and on every
+ * pushed non-tab screen (profile setting, change/forgot password, OTP).
  *
  * Forward navigation slides the new screen in from the right while the
  * previous screen slides out to the left; back navigation mirrors this,
@@ -143,9 +145,12 @@ fun NavigationRoot(
                             profileDisplayName = newDisplayName
                             backStack.removeLastOrNull()
                         },
+                        onChangePasswordClick = { backStack.add(AccountDest.ChangePassword()) },
+                        onForgotPasswordClick = { backStack.add(AccountDest.ForgotPassword) },
                         onBackClick = { backStack.removeLastOrNull() },
                     )
                 }
+                accountEntries(backStack)
                 flowScopedEntry<Dest.Details> { key ->
                     DetailsScreen(
                         itemId = key.itemId,

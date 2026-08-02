@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +32,8 @@ import com.tecfort.navigationtest.ui.components.AppTopBar
 fun ProfileSettingScreen(
     initialDisplayName: String,
     onSave: (displayName: String) -> Unit,
+    onChangePasswordClick: () -> Unit,
+    onForgotPasswordClick: () -> Unit,
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -54,6 +58,8 @@ fun ProfileSettingScreen(
                 modifier = Modifier.fillMaxWidth(),
             )
             Button(onClick = { onSave(displayName) }) { Text("Save and go back") }
+            OutlinedButton(onClick = onChangePasswordClick) { Text("Change password") }
+            TextButton(onClick = onForgotPasswordClick) { Text("Forgot password?") }
         }
     }
 }
