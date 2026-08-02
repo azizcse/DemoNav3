@@ -30,6 +30,12 @@ sealed interface Dest : NavKey {
     @Serializable
     data object Setting : Dest
 
+    @Serializable
+    data object Help : Dest
+
+    @Serializable
+    data object About : Dest
+
     /**
      * @param currentDisplayName the value Setting currently holds, shown pre-filled when this
      *   screen opens - demonstrates passing a value forward, mirroring the value passed back.
