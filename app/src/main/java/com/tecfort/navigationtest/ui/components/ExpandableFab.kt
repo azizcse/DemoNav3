@@ -9,15 +9,27 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.LocalFireDepartment
+import androidx.compose.material.icons.filled.MonitorHeart
+import androidx.compose.material.icons.filled.Straighten
+import androidx.compose.material3.Card
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -29,10 +41,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -92,7 +106,31 @@ fun ExpandableFabMenu(
                         onClick = { onExpandedChange(false) },
                     ),
             ) {
-                Text("Here is the text view")
+                Card(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()
+                        .height(150.dp)
+                        .padding(16.dp),
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "Foodi life",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly,
+                        ) {
+                            StatCircle(icon = Icons.AutoMirrored.Filled.DirectionsWalk, label = "Steps", value = "100")
+                            StatCircle(icon = Icons.Filled.MonitorHeart, label = "Heart", value = "100")
+                            StatCircle(icon = Icons.Filled.LocalFireDepartment, label = "Calori", value = "100")
+                            StatCircle(icon = Icons.Filled.Straighten, label = "Distance", value = "100")
+                        }
+                    }
+                }
             }
         }
 
@@ -154,6 +192,28 @@ fun ExpandableFabMenu(
                 modifier = Modifier.rotate(rotation),
             )
         }
+    }
+}
+
+@Composable
+private fun StatCircle(icon: ImageVector, label: String, value: String) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            modifier = Modifier
+                .size(48.dp)
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.secondaryContainer),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = label,
+                tint = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = value, style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold)
+        Text(text = label, style = MaterialTheme.typography.labelSmall)
     }
 }
 
