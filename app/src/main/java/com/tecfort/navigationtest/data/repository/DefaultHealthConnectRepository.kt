@@ -15,6 +15,7 @@ import androidx.health.connect.client.time.TimeRangeFilter
 import com.tecfort.navigationtest.data.model.HealthMetrics
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.time.Instant
+import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
 
@@ -48,11 +49,32 @@ class DefaultHealthConnectRepository @Inject constructor(
     }
 
     override suspend fun getTodayMetrics(): HealthMetrics {
-        val client = client ?: return HealthMetrics()
-
         val zoneId = ZoneId.systemDefault()
-        val now = Instant.now()
-        val startOfDay = now.atZone(zoneId).toLocalDate().atStartOfDay(zoneId).toInstant()
+        val today = Instant.now().atZone(zoneId).toLocalDate()
+        return aggregateMetrics(
+            start = today.atStartOfDay(zoneId).toInstant(),
+            end = Instant.now(),
+        )
+    }
+
+    override suspend fun getMetricsForDate(date: LocalDate): HealthMetrics {
+        val zoneId = ZoneId.systemDefault()
+        return aggregateMetrics(
+            start = date.atStartOfDay(zoneId).toInstant(),
+            end = date.plusDays(1).atStartOfDay(zoneId).toInstant(),
+        )
+    }
+
+    override suspend fun getMetricsForRange(startDate: LocalDate, endDate: LocalDate): HealthMetrics {
+        val zoneId = ZoneId.systemDefault()
+        return aggregateMetrics(
+            start = startDate.atStartOfDay(zoneId).toInstant(),
+            end = endDate.plusDays(1).atStartOfDay(zoneId).toInstant(),
+        )
+    }
+
+    private suspend fun aggregateMetrics(start: Instant, end: Instant): HealthMetrics {
+        val client = client ?: return HealthMetrics()
 
         val response = client.aggregate(
             AggregateRequest(
@@ -65,7 +87,7 @@ class DefaultHealthConnectRepository @Inject constructor(
                     SpeedRecord.SPEED_AVG,
                     CyclingPedalingCadenceRecord.RPM_AVG,
                 ),
-                timeRangeFilter = TimeRangeFilter.between(startOfDay, now),
+                timeRangeFilter = TimeRangeFilter.between(start, end),
             ),
         )
 

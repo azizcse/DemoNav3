@@ -1,6 +1,7 @@
 package com.tecfort.navigationtest.data.repository
 
 import com.tecfort.navigationtest.data.model.HealthMetrics
+import java.time.LocalDate
 
 /**
  * Source of truth for the Health Connect activity data shown on the Favorite screen.
@@ -18,4 +19,10 @@ interface HealthConnectRepository {
 
     /** Aggregated totals for today, from midnight to now. */
     suspend fun getTodayMetrics(): HealthMetrics
+
+    /** Aggregated totals for [date], from midnight to midnight of the next day. */
+    suspend fun getMetricsForDate(date: LocalDate): HealthMetrics
+
+    /** Aggregated totals across [startDate]..[endDate] (inclusive). */
+    suspend fun getMetricsForRange(startDate: LocalDate, endDate: LocalDate): HealthMetrics
 }
