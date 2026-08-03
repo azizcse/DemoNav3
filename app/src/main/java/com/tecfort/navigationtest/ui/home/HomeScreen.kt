@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccessAlarm
 import androidx.compose.material.icons.filled.FitnessCenter
 import androidx.compose.material.icons.filled.MonitorWeight
 import androidx.compose.material.icons.filled.Restaurant
@@ -74,6 +75,9 @@ fun HomeScreen(
                 coroutineScope.launch { snackbarHostState.showSnackbar("Add Exercise tapped") }
             },
             FabAction(Icons.Filled.MonitorWeight, "Log Weight") {
+                coroutineScope.launch { snackbarHostState.showSnackbar("Log Weight tapped") }
+            },
+            FabAction(Icons.Filled.AccessAlarm, "Exercise") {
                 coroutineScope.launch { snackbarHostState.showSnackbar("Log Weight tapped") }
             },
         )
