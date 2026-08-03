@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccessAlarm
 import androidx.compose.material.icons.filled.FitnessCenter
+import androidx.compose.material.icons.filled.MonitorHeart
 import androidx.compose.material.icons.filled.MonitorWeight
 import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material.icons.filled.WaterDrop
@@ -77,7 +78,7 @@ fun HomeScreen(
             FabAction(Icons.Filled.MonitorWeight, "Log Weight") {
                 coroutineScope.launch { snackbarHostState.showSnackbar("Log Weight tapped") }
             },
-            FabAction(Icons.Filled.AccessAlarm, "Exercise") {
+            FabAction(Icons.Default.MonitorHeart, "Exercise") {
                 coroutineScope.launch { snackbarHostState.showSnackbar("Log Weight tapped") }
             },
         )

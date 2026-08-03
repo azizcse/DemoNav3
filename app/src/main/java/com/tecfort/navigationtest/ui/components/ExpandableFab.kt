@@ -85,13 +85,15 @@ fun ExpandableFabMenu(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.Gray.copy(alpha = 0.4f))
+                    .background(Color.White)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
                         onClick = { onExpandedChange(false) },
                     ),
-            )
+            ) {
+                Text("Here is the text view")
+            }
         }
 
         val angleStep = 360f / actions.size
