@@ -41,6 +41,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":itemdetails"))
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
@@ -49,6 +52,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -71,4 +75,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    // NanoHTTPD Server
+    implementation("org.nanohttpd:nanohttpd:2.3.1")
+
+    // SSH Library for Reverse Tunneling
+    implementation("com.github.mwiede:jsch:2.28.7") // Modern active fork of JSch
 }
