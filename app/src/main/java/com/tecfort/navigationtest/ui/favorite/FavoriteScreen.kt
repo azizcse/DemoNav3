@@ -194,7 +194,8 @@ private fun CarouselIndicator(
         AnimatedContent(
             targetState = currentPage,
             transitionSpec = {
-                fadeIn(animationSpec = tween(220)) togetherWith fadeOut(animationSpec = tween(220)) using
+                fadeIn(animationSpec = tween(CAROUSEL_SCROLL_DURATION_MILLIS)) togetherWith
+                    fadeOut(animationSpec = tween(CAROUSEL_SCROLL_DURATION_MILLIS)) using
                     SizeTransform(clip = false)
             },
             label = "currentPageLabel",
@@ -215,7 +216,9 @@ private fun IndicatorDotsRow(pageIndices: List<Int>, currentPage: Int) {
     ) {
         items(items = pageIndices, key = { it }) { pageIndex ->
             Box(
-                modifier = Modifier.animateItem(),
+                modifier = Modifier.animateItem(
+                    placementSpec = tween(durationMillis = CAROUSEL_SCROLL_DURATION_MILLIS),
+                ),
                 contentAlignment = Alignment.Center,
             ) {
                 val distanceFromCurrent = kotlin.math.abs(pageIndex - currentPage)
@@ -245,7 +248,11 @@ private fun CurrentPageLabel(label: String) {
 
 @Composable
 private fun IndicatorDot(dotSize: Dp) {
-    val animatedDotSize by animateDpAsState(targetValue = dotSize, label = "indicatorDotSize")
+    val animatedDotSize by animateDpAsState(
+        targetValue = dotSize,
+        animationSpec = tween(durationMillis = CAROUSEL_SCROLL_DURATION_MILLIS),
+        label = "indicatorDotSize",
+    )
     Box(
         modifier = Modifier
             .size(animatedDotSize)
