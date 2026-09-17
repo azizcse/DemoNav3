@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModelTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-09-02T05:44:18.712Z" hostname="MAI-ST-LP" time="0.357">
+  <properties/>
+  <testcase name="incrementTapCount and onNoteChange mutate uiState" classname="com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModelTest" time="0.296"/>
+  <testcase name="loadItem is idempotent for the same item id" classname="com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModelTest" time="0.011"/>
+  <testcase name="loadItem with a different id replaces the item" classname="com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModelTest" time="0.013"/>
+  <testcase name="uiState starts loading then emits the requested item" classname="com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModelTest" time="0.014"/>
+  <testcase name="loadItem with an unknown id emits a null item" classname="com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModelTest" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

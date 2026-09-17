@@ -1,0 +1,142 @@
+09-02 11:46:28.225  3162  3210 I TestRunner: started: loading_showsOnlyProgressIndicator(com.tecfort.navigationtest.ui.details.DetailsScreenTest)
+09-02 11:46:28.317  3162  3210 W FileTestStorage: Output properties is not supported.
+09-02 11:46:28.318  3162  3210 I Tracing : Tracer added: class androidx.test.platform.tracing.AndroidXTracer
+09-02 11:46:28.331  3162  3162 D EventInjectionStrategy: Creating injection strategy with input manager.
+09-02 11:46:28.340  3162  3210 D IdlingRegistry: Registering idling resources: [androidx.compose.ui.test.EspressoLink@ea60887]
+09-02 11:46:28.361  3162  3210 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+09-02 11:46:28.373  1438  2603 I RegisterController: type=0
+09-02 11:46:28.403  1438  2603 I APP_LOCK: com.tecfort.navigationtest.itemdetails.test common is  not locked
+09-02 11:46:28.404  1438  2603 D ActivityTrigger: ActivityTrigger activityPauseTrigger
+09-02 11:46:28.414  1438  4240 I APP_LOCK: com.tecfort.navigationtest.itemdetails.test common is  not locked
+09-02 11:46:28.417  1438  4240 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:28.417  1438  4240 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:28.417  1438  4240 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:28.417  1438  4240 D CompatibilityInfo: mCompatibilityFlags - 0
+09-02 11:46:28.417  1438  4240 D CompatibilityInfo: applicationDensity - 320
+09-02 11:46:28.417  1438  4240 D CompatibilityInfo: applicationScale - 1.0
+09-02 11:46:28.443  2519  2865 E OpenGLRenderer: Unable to match the desired swap behavior.
+09-02 11:46:28.444  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: PRE_ON_CREATE
+09-02 11:46:28.444  3162  3162 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+09-02 11:46:28.456  2519  2865 W Parcel  : Expecting binder but got null!
+09-02 11:46:28.469  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: CREATED
+09-02 11:46:28.469  3162  3162 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=androidx.activity.ComponentActivity@9681776
+09-02 11:46:28.471  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: STARTED
+09-02 11:46:28.471  3162  3162 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=androidx.activity.ComponentActivity@9681776
+09-02 11:46:28.480  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: RESUMED
+09-02 11:46:28.480  3162  3162 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=androidx.activity.ComponentActivity@9681776
+09-02 11:46:28.494  1438  3812 D ScenePolicyTrigger: activityResumed PassThronght com.tecfort.navigationtest.itemdetails.test
+09-02 11:46:28.496  1438  3812 I android_os_HwBinder: HwBinder: Starting thread pool for getting: com.sunmi.hyper_engine@1.0::IHyperEngine/default
+09-02 11:46:28.497  1072  1072 I HyperEngine: notifyHyperFactor {"para1":"10","para2":"10","appInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test","pid":3162}}
+09-02 11:46:28.497  1072  1072 I HyperEngine: last packageName: com.tecfort.navigationtest
+09-02 11:46:28.497  1072  1072 I HyperEngine: onHyperFactorChanged scenario type Normal: apply policy 0x00
+09-02 11:46:28.497  1072  1072 I HyperEngine: applyPolicy CpusetConfig, id: 0x00
+09-02 11:46:28.497  1072  1072 I HyperEngine: Sched: applyPolicy load policy - 0x00
+09-02 11:46:28.498  1072  1072 E HyperEngine: Utils: Write file /dev/cpuset/restricted/cpus failed: 22
+09-02 11:46:28.498  1072  1072 E HyperEngine: Sched: applyPolicy </dev/cpuset/restricted/cpus, 0-7> error!
+09-02 11:46:28.498  1072  1072 E HyperEngine: applyPolicy: apply [CpusetConfig] failed.
+09-02 11:46:28.498  1072  1072 I HyperEngine: applyPolicy DeviceFreqConfig, id: 0x00
+09-02 11:46:28.498  1072  1072 I HyperEngine: applyPolicy IOConfig, id: 0x00
+09-02 11:46:28.498  1072  1072 I HyperEngine: applyPolicy SchedConfig, id: 0x00
+09-02 11:46:28.500  1072  1072 I HyperEngine: requestAction : {"eventType":"WindowsAnimation","eventInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test"}}
+09-02 11:46:28.500  1438  3812 D ScenePolicyTrigger: requestAction: {"eventType":"WindowsAnimation","eventInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test"}}
+09-02 11:46:28.500  1438  3812 D ScenePolicyTrigger: callback: 1.0,1.0,1.0
+09-02 11:46:28.501  1438  3812 I android_os_HwBinder: HwBinder: Starting thread pool for getting: com.sunmi.hyper_engine@1.0::IHyperEngine/default
+09-02 11:46:28.501  1072  1072 I HyperEngine: requestAction : {"eventType":"SqliteMode","eventInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test"}}
+09-02 11:46:28.502  1438  3812 I ScenePolicyTrigger: isSqliteMode return:{"method":"SqliteMode","return_code":false,"return_msg":"ok"}
+09-02 11:46:28.512  1095  3432 I SDM     : HWCDisplay::GetColorModeCount: Supported color mode count = 1
+09-02 11:46:28.512  1095  3432 I SDM     : HWCDisplay::GetColorModes: Color mode = 0 is supported
+09-02 11:46:28.514  1163  1486 W ServiceManager: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10355 pid=0
+09-02 11:46:28.514  1163  1486 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10355 => denied (432 us)
+09-02 11:46:28.515  1163  1320 W ServiceManager: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10355 pid=3162
+09-02 11:46:28.515  1163  1320 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10355 => denied (461 us)
+09-02 11:46:28.515  1163  1320 W ServiceManager: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10355 pid=3162
+09-02 11:46:28.515  1163  1320 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10355 => denied (191 us)
+09-02 11:46:28.516  1163  1486 W ServiceManager: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10355 pid=0
+09-02 11:46:28.516  1163  1486 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10355 => denied (1461 us)
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: QUALCOMM build                   : 6ace8db9d1, I82682063e0
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Build Date                       : 12/30/22
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: OpenGL ES Shader Compiler Version: EV031.36.08.19
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Local Branch                     :
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Remote Branch                    :
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Remote Branch                    :
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Reconstruct Branch               :
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Build Config                     : S P 12.1.1 AArch64
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+09-02 11:46:28.517  3162  3217 I AdrenoGLES-0: Driver Version                   : 0615.58
+09-02 11:46:28.523  3162  3217 I AdrenoGLES-0: PFP: 0x016ee202, ME: 0x00000000
+09-02 11:46:28.545  1095  3184 I SDM     : HWCDisplay::GetColorModeCount: Supported color mode count = 1
+09-02 11:46:28.545  1095  3184 I SDM     : HWCDisplay::GetColorModes: Color mode = 0 is supported
+09-02 11:46:28.546  3162  3217 E OpenGLRenderer: Unable to match the desired swap behavior.
+09-02 11:46:28.551   477   477 I servicemanager: Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest.
+09-02 11:46:28.579  3162  3217 W Parcel  : Expecting binder but got null!
+09-02 11:46:28.584  1438  1454 W ziparchive: Unable to open '/data/app/~~AxUz6lqmpDa4ujlLccDU-A==/com.tecfort.navigationtest.itemdetails.test-DJrf9H7i9ACd0BAZFJtgbQ==/base.dm': No such file or directory
+09-02 11:46:28.585  1438  1454 I ActivityTaskManager: Displayed com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity: +210ms
+09-02 11:46:28.871  1438  4259 W InputManager-JNI: Input channel object '148fa93 Splash Screen com.tecfort.navigationtest.itemdetails.test (client)' was disposed without first being removed with the input manager!
+09-02 11:46:28.901  3162  3230 D ProfileInstaller: Installing profile for com.tecfort.navigationtest.itemdetails.test
+09-02 11:46:28.919  1122  3505 E ANDR-PERF-LM: LaunchMeter:: updatesFDCount() 993: updatesFDCount arg list Sz 18
+09-02 11:46:29.007 18387 24716 I FontLog : (REDACTED) Received query %s, URI %s
+09-02 11:46:29.008 18387 24716 I FontLog : (REDACTED) Query [%s] resolved to %s
+09-02 11:46:29.012 18387 24716 I FontLog : (REDACTED) Fetch %s end status %s
+09-02 11:46:29.021 18387 24716 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-02 11:46:29.033 18387 24716 I FontLog : (REDACTED) Pulling font file for id = %d, cache size = %d
+09-02 11:46:29.186  3162  3162 D CompatibilityChangeReporter: Compat change id reported: 193247900; UID 10355; state: ENABLED
+09-02 11:46:29.474  1122  3505 E ANDR-PERF-LM: LaunchMeter:: updatesFDCount() 993: updatesFDCount arg list Sz 18
+09-02 11:46:29.533  1438  4259 I RegisterController: type=0
+09-02 11:46:29.543  1438  4259 I APP_LOCK: com.tecfort.navigationtest.itemdetails.test common is  not locked
+09-02 11:46:29.544  1438  4259 D ActivityTrigger: ActivityTrigger activityPauseTrigger
+09-02 11:46:29.550  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: PAUSED
+09-02 11:46:29.551  3162  3162 V ActivityScenario: Update currentActivityStage to PAUSED, currentActivity=androidx.activity.ComponentActivity@9681776
+09-02 11:46:29.551  1438  3812 I APP_LOCK: com.tecfort.navigationtest.itemdetails.test common is  not locked
+09-02 11:46:29.552  1438  3812 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:29.552  1438  3812 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:29.552  1438  3812 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:29.553  1438  3812 D CompatibilityInfo: mCompatibilityFlags - 0
+09-02 11:46:29.553  1438  3812 D CompatibilityInfo: applicationDensity - 320
+09-02 11:46:29.553  1438  3812 D CompatibilityInfo: applicationScale - 1.0
+09-02 11:46:29.563  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b in: PRE_ON_CREATE
+09-02 11:46:29.563  3162  3162 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b
+09-02 11:46:29.570  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b in: CREATED
+09-02 11:46:29.570  3162  3162 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b
+09-02 11:46:29.571  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b in: STARTED
+09-02 11:46:29.572  3162  3162 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b
+09-02 11:46:29.573  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b in: RESUMED
+09-02 11:46:29.573  3162  3162 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b
+09-02 11:46:29.581  1438  3812 D ScenePolicyTrigger: activityResumed PassThronght com.tecfort.navigationtest.itemdetails.test
+09-02 11:46:29.583  1438  3812 I android_os_HwBinder: HwBinder: Starting thread pool for getting: com.sunmi.hyper_engine@1.0::IHyperEngine/default
+09-02 11:46:29.583  1072  1072 I HyperEngine: notifyHyperFactor {"para1":"10","para2":"10","appInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test","pid":3162}}
+09-02 11:46:29.584  1072  1072 I HyperEngine: requestAction : {"eventType":"WindowsAnimation","eventInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test"}}
+09-02 11:46:29.584  1438  3812 D ScenePolicyTrigger: requestAction: {"eventType":"WindowsAnimation","eventInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test"}}
+09-02 11:46:29.584  1438  3812 D ScenePolicyTrigger: callback: 1.0,1.0,1.0
+09-02 11:46:29.586  1438  3812 I android_os_HwBinder: HwBinder: Starting thread pool for getting: com.sunmi.hyper_engine@1.0::IHyperEngine/default
+09-02 11:46:29.586  1072  1072 I HyperEngine: requestAction : {"eventType":"SqliteMode","eventInfo":{"packageName":"com.tecfort.navigationtest.itemdetails.test"}}
+09-02 11:46:29.586  1438  3812 I ScenePolicyTrigger: isSqliteMode return:{"method":"SqliteMode","return_code":false,"return_msg":"ok"}
+09-02 11:46:29.601  3162  3217 E OpenGLRenderer: Unable to match the desired swap behavior.
+09-02 11:46:29.610  3162  3217 W Parcel  : Expecting binder but got null!
+09-02 11:46:29.634  1438  1454 I ActivityTaskManager: Displayed com.tecfort.navigationtest.itemdetails.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity: +99ms
+09-02 11:46:29.651  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: STOPPED
+09-02 11:46:29.651  3162  3162 V ActivityScenario: Update currentActivityStage to STOPPED, currentActivity=androidx.activity.ComponentActivity@9681776
+09-02 11:46:29.660  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.activity.ComponentActivity@9681776 in: DESTROYED
+09-02 11:46:29.660  3162  3162 V ActivityScenario: Update currentActivityStage to DESTROYED, currentActivity=null
+09-02 11:46:29.664  1438  3812 W InputManager-JNI: Input channel object '2646afb com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity (client)' was disposed without first being removed with the input manager!
+09-02 11:46:29.680  1438  2603 D ActivityTrigger: ActivityTrigger activityPauseTrigger
+09-02 11:46:29.688  3162  3162 D LifecycleMonitor: Lifecycle status change: androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b in: PAUSED
+09-02 11:46:29.689  3162  3162 V ActivityScenario: Activity lifecycle changed event received but ignored because the intent does not match. startActivityIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.activity.ComponentActivity }, activity.getIntent()=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.tecfort.navigationtest.itemdetails.test/androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity }, activity=androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity@d01db6b
+09-02 11:46:29.691  1438  2603 I APP_LOCK: com.tecfort.navigationtest common is  not locked
+09-02 11:46:29.695  1438  2603 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:29.695  1438  2603 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:29.695  1438  2603 D WmsExtImpl: isAutoRotationEnabled = 1
+09-02 11:46:29.707  3162  3210 D IdlingRegistry: Unregistering idling resources: [androidx.compose.ui.test.EspressoLink@ea60887]
+09-02 11:46:29.709  1438  4240 D ScenePolicyTrigger: activityResumed PassThronght com.tecfort.navigationtest
+09-02 11:46:29.713  1438  4240 I android_os_HwBinder: HwBinder: Starting thread pool for getting: com.sunmi.hyper_engine@1.0::IHyperEngine/default
+09-02 11:46:29.714  1072  1072 I HyperEngine: notifyHyperFactor {"para1":"10","para2":"10","appInfo":{"packageName":"com.tecfort.navigationtest","pid":2523}}
+09-02 11:46:29.714  1072  1072 I HyperEngine: last packageName: com.tecfort.navigationtest.itemdetails.test
+09-02 11:46:29.714  1072  1072 I HyperEngine: onHyperFactorChanged scenario type Normal: apply policy 0x00
+09-02 11:46:29.714  1072  1072 I HyperEngine: applyPolicy CpusetConfig, id: 0x00
+09-02 11:46:29.714  1072  1072 I HyperEngine: Sched: applyPolicy load policy - 0x00
+09-02 11:46:29.715  1072  1072 E HyperEngine: Utils: Write file /dev/cpuset/restricted/cpus failed: 22
+09-02 11:46:29.715  1072  1072 E HyperEngine: Sched: applyPolicy </dev/cpuset/restricted/cpus, 0-7> error!
+09-02 11:46:29.715  1072  1072 E HyperEngine: applyPolicy: apply [CpusetConfig] failed.
+09-02 11:46:29.715  1072  1072 I HyperEngine: applyPolicy DeviceFreqConfig, id: 0x00
+09-02 11:46:29.715  1072  1072 I HyperEngine: applyPolicy IOConfig, id: 0x00
+09-02 11:46:29.715  1072  1072 I HyperEngine: applyPolicy SchedConfig, id: 0x00
+09-02 11:46:29.716  3162  3210 I TestRunner: finished: loading_showsOnlyProgressIndicator(com.tecfort.navigationtest.ui.details.DetailsScreenTest)

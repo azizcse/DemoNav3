@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="8" failures="0" errors="0" skipped="0" time="14.666" timestamp="2026-09-02T05:46:42" hostname="localhost">
+  <testsuite name="com.tecfort.navigationtest.ui.details.DetailsScreenTest" tests="4" failures="0" errors="0" skipped="0" time="4.411" timestamp="2026-09-02T05:46:42" hostname="localhost">
+    <properties>
+      <property name="device" value="V3 - 13" />
+      <property name="flavor" value="" />
+      <property name="project" value=":itemdetails" />
+    </properties>
+    <testcase name="loading_showsOnlyProgressIndicator" classname="com.tecfort.navigationtest.ui.details.DetailsScreenTest" time="1.449" />
+    <testcase name="clickingOpenReview_invokesOnReviewClick" classname="com.tecfort.navigationtest.ui.details.DetailsScreenTest" time="1.012" />
+    <testcase name="loaded_rendersSharedState" classname="com.tecfort.navigationtest.ui.details.DetailsScreenTest" time="0.963" />
+    <testcase name="clickingTap_invokesOnTapClick" classname="com.tecfort.navigationtest.ui.details.DetailsScreenTest" time="0.987" />
+  </testsuite>
+  <testsuite name="com.tecfort.navigationtest.ui.review.ReviewScreenTest" tests="4" failures="0" errors="0" skipped="0" time="4.942" timestamp="2026-09-02T05:46:42" hostname="localhost">
+    <properties>
+      <property name="device" value="V3 - 13" />
+      <property name="flavor" value="" />
+      <property name="project" value=":itemdetails" />
+    </properties>
+    <testcase name="loading_showsOnlyProgressIndicator" classname="com.tecfort.navigationtest.ui.review.ReviewScreenTest" time="0.856" />
+    <testcase name="loaded_rendersSharedStateFromUiStateOnly" classname="com.tecfort.navigationtest.ui.review.ReviewScreenTest" time="1.712" />
+    <testcase name="clickingTap_invokesOnTapClick" classname="com.tecfort.navigationtest.ui.review.ReviewScreenTest" time="0.911" />
+    <testcase name="typingInNoteField_invokesOnNoteChange" classname="com.tecfort.navigationtest.ui.review.ReviewScreenTest" time="1.463" />
+  </testsuite>
+</testsuites>

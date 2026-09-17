@@ -1,7 +1,13 @@
 package com.tecfort.navigationtest.ui.favorite
 
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -32,7 +38,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -197,9 +202,10 @@ private fun CarouselCard(
     }
 }
 
-private const val INDICATOR_WINDOW_SIZE = 5
+private const val INDICATOR_WINDOW_SIZE = 7
 private val INDICATOR_NEAR_DOT_SIZE = 8.dp
 private val INDICATOR_FAR_DOT_SIZE = 6.dp
+private val INDICATOR_FAR_FAR_DOT_SIZE = 4.dp
 
 @Composable
 private fun CarouselIndicator(
@@ -208,27 +214,52 @@ private fun CarouselIndicator(
     modifier: Modifier = Modifier,
 ) {
     val windowSize = minOf(INDICATOR_WINDOW_SIZE, totalPages)
-    val windowStart = (currentPage - 2).coerceIn(0, (totalPages - windowSize).coerceAtLeast(0))
+    val windowStart = (currentPage - windowSize / 2).coerceIn(0, (totalPages - windowSize).coerceAtLeast(0))
+    val windowIndices = windowStart until windowStart + windowSize
+    val leftIndices = windowIndices.filter { it < currentPage }
+    val rightIndices = windowIndices.filter { it > currentPage }
 
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        for (slot in 0 until windowSize) {
-            val pageIndex = windowStart + slot
-            if (slot != 0) {
-                Spacer(modifier = Modifier.width(6.dp))
-            }
-            if (pageIndex == currentPage) {
-                CurrentPageLabel(label = "${pageIndex + 1}/$totalPages")
-            } else {
-                key(pageIndex) {
-                    val distanceFromCurrent = kotlin.math.abs(pageIndex - currentPage)
-                    IndicatorDot(
-                        dotSize = if (distanceFromCurrent <= 1) INDICATOR_NEAR_DOT_SIZE else INDICATOR_FAR_DOT_SIZE,
-                    )
+        IndicatorDotsRow(pageIndices = leftIndices, currentPage = currentPage)
+        if (leftIndices.isNotEmpty()) Spacer(modifier = Modifier.width(6.dp))
+        AnimatedContent(
+            targetState = currentPage,
+            transitionSpec = {
+                fadeIn(animationSpec = tween(220)) togetherWith fadeOut(animationSpec = tween(220)) using
+                    SizeTransform(clip = false)
+            },
+            label = "currentPageLabel",
+        ) { page ->
+            CurrentPageLabel(label = "${page + 1}/$totalPages")
+        }
+        if (rightIndices.isNotEmpty()) Spacer(modifier = Modifier.width(6.dp))
+        IndicatorDotsRow(pageIndices = rightIndices, currentPage = currentPage)
+    }
+}
+
+@Composable
+private fun IndicatorDotsRow(pageIndices: List<Int>, currentPage: Int) {
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        userScrollEnabled = false,
+    ) {
+        items(items = pageIndices, key = { it }) { pageIndex ->
+            Box(
+                modifier = Modifier.animateItem(),
+                contentAlignment = Alignment.Center,
+            ) {
+                val distanceFromCurrent = kotlin.math.abs(pageIndex - currentPage)
+                val dotSize = when {
+                    distanceFromCurrent <= 1 -> INDICATOR_NEAR_DOT_SIZE
+                    distanceFromCurrent == 2 -> INDICATOR_FAR_DOT_SIZE
+                    else -> INDICATOR_FAR_FAR_DOT_SIZE
                 }
+                IndicatorDot(dotSize = dotSize)
             }
         }
     }

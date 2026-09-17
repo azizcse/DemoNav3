@@ -1,0 +1,197 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tecfort.navigationtest.itemdetails.test" >
+4
+5    <uses-sdk
+5-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:5:5-74
+6        android:minSdkVersion="26"
+6-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:5:15-41
+7        android:targetSdkVersion="37" />
+7-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:5:42-71
+8
+9    <instrumentation
+9-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:7:5-11:93
+10        android:name="androidx.test.runner.AndroidJUnitRunner"
+10-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:7:22-76
+11        android:functionalTest="false"
+11-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:10:22-52
+12        android:handleProfiling="false"
+12-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:9:22-53
+13        android:label="Tests for com.tecfort.navigationtest.itemdetails.test"
+13-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:11:22-91
+14        android:targetPackage="com.tecfort.navigationtest.itemdetails.test" />
+14-->/home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest8872984626762216131.xml:8:22-89
+15
+16    <uses-permission android:name="android.permission.REORDER_TASKS" />
+16-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:24:5-72
+16-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:24:22-69
+17
+18    <permission
+18-->[androidx.core:core:1.16.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/0cea9a10de08636a5c12addd8ff01d7e/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+19        android:name="com.tecfort.navigationtest.itemdetails.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.16.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/0cea9a10de08636a5c12addd8ff01d7e/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.16.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/0cea9a10de08636a5c12addd8ff01d7e/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.tecfort.navigationtest.itemdetails.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+22-->[androidx.core:core:1.16.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/0cea9a10de08636a5c12addd8ff01d7e/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.16.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/0cea9a10de08636a5c12addd8ff01d7e/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+23
+24    <queries>
+24-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:24:5-28:15
+25        <package android:name="androidx.test.orchestrator" />
+25-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:25:9-62
+25-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:25:18-59
+26        <package android:name="androidx.test.services" />
+26-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:26:9-58
+26-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:26:18-55
+27        <package android:name="com.google.android.apps.common.testing.services" />
+27-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:27:9-83
+27-->[androidx.test:runner:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/95586b8c462bdaafe85fdc20a3a2f51b/transformed/runner-1.5.0/AndroidManifest.xml:27:18-80
+28    </queries>
+29
+30    <application
+30-->INJECTED
+31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+31-->[androidx.core:core:1.16.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/0cea9a10de08636a5c12addd8ff01d7e/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+32        android:debuggable="true"
+33        android:extractNativeLibs="false" >
+33-->INJECTED
+34        <activity
+34-->[androidx.compose.ui:ui-test-manifest:1.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b44646a69208327ec0657ac29988be4e/transformed/ui-test-manifest-1.11.0/AndroidManifest.xml:23:9-26:79
+35            android:name="androidx.activity.ComponentActivity"
+35-->[androidx.compose.ui:ui-test-manifest:1.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b44646a69208327ec0657ac29988be4e/transformed/ui-test-manifest-1.11.0/AndroidManifest.xml:24:13-63
+36            android:exported="true"
+36-->[androidx.compose.ui:ui-test-manifest:1.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b44646a69208327ec0657ac29988be4e/transformed/ui-test-manifest-1.11.0/AndroidManifest.xml:25:13-36
+37            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+37-->[androidx.compose.ui:ui-test-manifest:1.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b44646a69208327ec0657ac29988be4e/transformed/ui-test-manifest-1.11.0/AndroidManifest.xml:26:13-76
+38        <activity
+38-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:27:9-34:20
+39            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+39-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:28:13-99
+40            android:exported="true"
+40-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:29:13-36
+41            android:theme="@style/WhiteBackgroundTheme" >
+41-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:30:13-56
+42            <intent-filter android:priority="-100" >
+42-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
+42-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
+43-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
+44            </intent-filter>
+45        </activity>
+46        <activity
+46-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:35:9-42:20
+47            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+47-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:36:13-95
+48            android:exported="true"
+48-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:37:13-36
+49            android:theme="@style/WhiteBackgroundTheme" >
+49-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:38:13-56
+50            <intent-filter android:priority="-100" >
+50-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
+50-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
+51-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
+52            </intent-filter>
+53        </activity>
+54        <activity
+54-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:43:9-50:20
+55            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+55-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:44:13-103
+56            android:exported="true"
+56-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:45:13-36
+57            android:theme="@style/WhiteBackgroundDialogTheme" >
+57-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:46:13-62
+58            <intent-filter android:priority="-100" >
+58-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
+58-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
+59-->[androidx.test:core:1.7.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/b255dcd7fa25e9f0c1acc07adf083f32/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
+60            </intent-filter>
+61        </activity>
+62
+63        <provider
+63-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+64            android:name="androidx.startup.InitializationProvider"
+64-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+65            android:authorities="com.tecfort.navigationtest.itemdetails.test.androidx-startup"
+65-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+66            android:exported="false" >
+66-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+67            <meta-data
+67-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+68-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+69                android:value="androidx.startup" />
+69-->[androidx.emoji2:emoji2:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/6358efbe87fada0076d0b31e295374c2/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+70            <meta-data
+70-->[androidx.lifecycle:lifecycle-process:2.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/abb3c6dfa6be0fd0a92ed12c5cb9b976/transformed/lifecycle-process-2.11.0/AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+71-->[androidx.lifecycle:lifecycle-process:2.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/abb3c6dfa6be0fd0a92ed12c5cb9b976/transformed/lifecycle-process-2.11.0/AndroidManifest.xml:30:17-78
+72                android:value="androidx.startup" />
+72-->[androidx.lifecycle:lifecycle-process:2.11.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/abb3c6dfa6be0fd0a92ed12c5cb9b976/transformed/lifecycle-process-2.11.0/AndroidManifest.xml:31:17-49
+73            <meta-data
+73-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+74                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+74-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+75                android:value="androidx.startup" />
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+76        </provider>
+77
+78        <uses-library
+78-->[androidx.window:window:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/d8ffcff294e339b50aa49e04041279d0/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+79            android:name="androidx.window.extensions"
+79-->[androidx.window:window:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/d8ffcff294e339b50aa49e04041279d0/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+80            android:required="false" />
+80-->[androidx.window:window:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/d8ffcff294e339b50aa49e04041279d0/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+81        <uses-library
+81-->[androidx.window:window:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/d8ffcff294e339b50aa49e04041279d0/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+82            android:name="androidx.window.sidecar"
+82-->[androidx.window:window:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/d8ffcff294e339b50aa49e04041279d0/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+83            android:required="false" />
+83-->[androidx.window:window:1.5.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/d8ffcff294e339b50aa49e04041279d0/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+84
+85        <receiver
+85-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+86            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+87            android:directBootAware="false"
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+88            android:enabled="true"
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+89            android:exported="true"
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+90            android:permission="android.permission.DUMP" >
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+92                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+92-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+92-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+93            </intent-filter>
+94            <intent-filter>
+94-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+95                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+96            </intent-filter>
+97            <intent-filter>
+97-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+98                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+99            </intent-filter>
+100            <intent-filter>
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+101                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/md-azizul-islam/.gradle/caches/9.6.1/transforms/e22497bf5ad4ac1919b2589ed5649dd3/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+102            </intent-filter>
+103        </receiver>
+104    </application>
+105
+106</manifest>

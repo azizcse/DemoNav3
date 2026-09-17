@@ -1,0 +1,9 @@
+com.tecfort.navigationtest.itemdetails-pngs-0 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/generated/res/pngs/debug
+com.tecfort.navigationtest.itemdetails-updated_navigation_xml-1 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/generated/updated_navigation_xml/debug
+com.tecfort.navigationtest.itemdetails-mergeDebugResources-2 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.tecfort.navigationtest.itemdetails-mergeDebugResources-3 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.tecfort.navigationtest.itemdetails-debug-4 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/merged_res/debug/mergeDebugResources
+com.tecfort.navigationtest.itemdetails-debug-5 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/build/intermediates/packaged_res/debug/packageDebugResources
+com.tecfort.navigationtest.itemdetails-debug-6 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/src/debug/res
+com.tecfort.navigationtest.itemdetails-main-7 /home/md-azizul-islam/Projects/Utility/NavigationText/itemdetails/src/main/res
+gradleHome-0 /home/md-azizul-islam/.gradle

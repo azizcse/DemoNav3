@@ -1,0 +1,1 @@
+-keep,allowobfuscation,allowshrinking class com.tecfort.navigationtest.ui.itemflow.ItemFlowViewModel
