@@ -12,9 +12,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import com.tecfort.navigationtest.ui.components.CollapsibleHeader
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.FitnessCenter
@@ -104,72 +113,27 @@ fun HomeScreen(
         )
     }
 
+    var query by rememberSaveable { mutableStateOf("") }
+    val filteredItems = remember(uiState.items, query) {
+        if (query.isBlank()) uiState.items else uiState.items.filter { it.title.contains(query, ignoreCase = true) }
+    }
+
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
-        val (greeting, statsCard, itemsLabel, itemsDivider, list, fab, snackbar) = createRefs()
+        val (header, fab, snackbar) = createRefs()
 
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp)
-                .constrainAs(greeting) {
-                    top.linkTo(parent.top)
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                },
-        ) {
-            Text(text = todaysGreeting(), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-            Text(
-                text = "Let's crush today's goals",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-
-        HomeStatsCard(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .constrainAs(statsCard) {
-                    top.linkTo(greeting.bottom, margin = 8.dp)
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                },
-        )
-
-        Text(
-            text = "Items",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .padding(horizontal = 16.dp)
-                .constrainAs(itemsLabel) {
-                    top.linkTo(statsCard.bottom, margin = 24.dp)
-                    start.linkTo(parent.start)
-                },
-        )
-
-        HorizontalDivider(
-            modifier = Modifier
-                .padding(top = 8.dp)
-                .constrainAs(itemsDivider) {
-                    top.linkTo(itemsLabel.bottom)
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                    width = Dimension.fillToConstraints
-                },
-        )
-
-        LazyColumn(
-            modifier = Modifier.constrainAs(list) {
-                top.linkTo(itemsDivider.bottom)
+        CollapsibleHeader(
+            modifier = Modifier.constrainAs(header) {
+                top.linkTo(parent.top)
                 bottom.linkTo(parent.bottom)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
                 width = Dimension.fillToConstraints
                 height = Dimension.fillToConstraints
             },
+            headerContent = { progress -> HomeHeaderContent(collapseProgress = progress) },
+            searchBar = { HomeSearchField(query = query, onQueryChange = { query = it }) },
         ) {
-            items(uiState.items, key = { it.id }) { item ->
+            items(filteredItems, key = { it.id }) { item ->
                 ListItem(
                     headlineContent = { Text(item.title) },
                     modifier = Modifier.clickable { onItemClick(item) },
@@ -208,6 +172,61 @@ private fun todaysGreeting(): String = when (LocalTime.now().hour) {
     in 5..11 -> "Good morning"
     in 12..16 -> "Good afternoon"
     else -> "Good evening"
+}
+
+@Composable
+private fun HomeHeaderContent(collapseProgress: Float) {
+    val expandedAlpha = (1f - collapseProgress * 2f).coerceIn(0f, 1f)
+    Box(modifier = Modifier.fillMaxSize()) {
+        // Expanded: greeting + stats. Fades out in the first half of the collapse.
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 12.dp)
+                .graphicsLayer { alpha = expandedAlpha },
+        ) {
+            Text(text = todaysGreeting(), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+            Text(
+                text = "Let's crush today's goals",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            HomeStatsCard(modifier = Modifier.fillMaxWidth())
+        }
+        // Collapsed: the floating search field is the only header content.
+    }
+}
+
+@Composable
+private fun HomeSearchField(query: String, onQueryChange: (String) -> Unit) {
+    Surface(
+        shape = RoundedCornerShape(28.dp),
+        color = MaterialTheme.colorScheme.surface,
+        shadowElevation = 4.dp,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        TextField(
+            value = query,
+            onValueChange = onQueryChange,
+            singleLine = true,
+            placeholder = { Text("Search items") },
+            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+            trailingIcon = {
+                if (query.isNotEmpty()) {
+                    IconButton(onClick = { onQueryChange("") }) {
+                        Icon(Icons.Filled.Close, contentDescription = "Clear")
+                    }
+                }
+            },
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+            ),
+            modifier = Modifier.fillMaxWidth(),
+        )
+    }
 }
 
 @Composable
