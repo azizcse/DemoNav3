@@ -10,6 +10,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.animateScrollBy
+import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -86,7 +87,7 @@ fun FavoriteScreen(
 
 private data class CarouselItem(val id: Int, val title: String)
 
-private fun dummyCarouselItems(): List<CarouselItem> = (1..15).map { CarouselItem(id = it, title = "Item $it") }
+private fun dummyCarouselItems(): List<CarouselItem> = (1..16).map { CarouselItem(id = it, title = "Item $it") }
 
 private const val INFINITE_SCROLL_MULTIPLIER = 2000
 private const val CAROUSEL_SCROLL_DURATION_MILLIS = 900
@@ -106,15 +107,25 @@ private fun FavoriteCarousel(
     val listState = rememberLazyListState(initialFirstVisibleItemIndex = startIndex)
     var currentPage by remember { mutableIntStateOf(0) }
     val density = LocalDensity.current
+    var resumeSignal by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(listState, itemCount) {
         snapshotFlow { listState.firstVisibleItemIndex }
             .collect { index -> currentPage = index % itemCount }
     }
 
-    LaunchedEffect(itemCount) {
+    LaunchedEffect(listState) {
+        listState.interactionSource.interactions.collect { interaction ->
+            if (interaction is DragInteraction.Stop || interaction is DragInteraction.Cancel) {
+                resumeSignal++
+            }
+        }
+    }
+
+    LaunchedEffect(itemCount, resumeSignal) {
         while (true) {
             delay(2000)
+            if (listState.isScrollInProgress) continue
             val itemSizePx = listState.layoutInfo.visibleItemsInfo.firstOrNull()?.size ?: 0
             val spacingPx = with(density) { CAROUSEL_ITEM_SPACING.toPx() }
             listState.animateScrollBy(
