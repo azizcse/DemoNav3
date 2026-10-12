@@ -15,7 +15,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.FilledIconButton
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.draw.clip
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
@@ -67,6 +72,8 @@ import java.time.LocalTime
 fun HomeScreen(
     onItemClick: (Item) -> Unit,
     modifier: Modifier = Modifier,
+    onBackClick: () -> Unit = {},
+    onCalendarClick: () -> Unit = {},
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -74,6 +81,8 @@ fun HomeScreen(
         uiState = uiState,
         onItemClick = onItemClick,
         modifier = modifier,
+        onBackClick = onBackClick,
+        onCalendarClick = onCalendarClick,
     )
 }
 
@@ -82,6 +91,8 @@ fun HomeScreen(
     uiState: HomeUiState,
     onItemClick: (Item) -> Unit,
     modifier: Modifier = Modifier,
+    onBackClick: () -> Unit = {},
+    onCalendarClick: () -> Unit = {},
 ) {
     if (uiState.isLoading) {
         Box(modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -131,7 +142,19 @@ fun HomeScreen(
                 height = Dimension.fillToConstraints
             },
             headerContent = { progress -> HomeHeaderContent(collapseProgress = progress) },
-            searchBar = { HomeSearchField(query = query, onQueryChange = { query = it }) },
+            searchBarHorizontalPadding = 4.dp,
+            searchBar = { progress ->
+                HomeSearchRow(
+                    collapseProgress = progress,
+                    query = query,
+                    onQueryChange = { query = it },
+                    onBackClick = onBackClick,
+                    onCalendarClick = {
+                        onCalendarClick()
+                        coroutineScope.launch { snackbarHostState.showSnackbar("Calendar tapped") }
+                    },
+                )
+            },
         ) {
             items(filteredItems, key = { it.id }) { item ->
                 ListItem(
@@ -194,6 +217,62 @@ private fun HomeHeaderContent(collapseProgress: Float) {
             HomeStatsCard(modifier = Modifier.fillMaxWidth())
         }
         // Collapsed: the floating search field is the only header content.
+    }
+}
+
+/**
+ * Search field with a back button on its left and a circular calendar button on its right.
+ * Both buttons grow in (width and alpha) as the header collapses; they are inert until visible.
+ */
+@Composable
+private fun HomeSearchRow(
+    collapseProgress: Float,
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onBackClick: () -> Unit,
+    onCalendarClick: () -> Unit,
+) {
+    val buttonSize = 48.dp
+    val gap = 8.dp
+    val progress = collapseProgress.coerceIn(0f, 1f)
+    val enabled = progress >= 0.8f
+    val buttonAlpha = ((progress - 0.5f) * 2f).coerceIn(0f, 1f)
+
+    Row(
+        // The header gives the row a small base inset; the rest shrinks away as it collapses
+        // so the buttons sit close to the screen edges while the expanded field keeps 16dp.
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 12.dp * (1f - progress)),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Box(
+            modifier = Modifier
+                .width(buttonSize * progress)
+                .graphicsLayer { alpha = buttonAlpha }
+                .clip(CircleShape),
+            contentAlignment = Alignment.Center,
+        ) {
+            IconButton(onClick = onBackClick, enabled = enabled, modifier = Modifier.size(buttonSize)) {
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+            }
+        }
+        Spacer(modifier = Modifier.width(gap * progress))
+        Box(modifier = Modifier.weight(1f)) {
+            HomeSearchField(query = query, onQueryChange = onQueryChange)
+        }
+        Spacer(modifier = Modifier.width(gap * progress))
+        Box(
+            modifier = Modifier
+                .width(buttonSize * progress)
+                .graphicsLayer { alpha = buttonAlpha }
+                .clip(CircleShape),
+            contentAlignment = Alignment.Center,
+        ) {
+            FilledIconButton(onClick = onCalendarClick, enabled = enabled, modifier = Modifier.size(buttonSize)) {
+                Icon(Icons.Filled.CalendarMonth, contentDescription = "Calendar")
+            }
+        }
     }
 }
 
