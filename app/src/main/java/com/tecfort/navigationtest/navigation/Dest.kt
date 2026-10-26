@@ -36,6 +36,15 @@ sealed interface Dest : NavKey {
     @Serializable
     data object About : Dest
 
+    @Serializable
+    data object RideshareHome : Dest
+
+    @Serializable
+    data object SearchDestination : Dest
+
+    @Serializable
+    data object TransactionHistory : Dest
+
     /**
      * @param currentDisplayName the value Setting currently holds, shown pre-filled when this
      *   screen opens - demonstrates passing a value forward, mirroring the value passed back.

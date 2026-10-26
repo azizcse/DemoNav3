@@ -28,6 +28,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -54,6 +55,9 @@ import java.util.Locale
 
 @Composable
 fun FavoriteScreen(
+    onOpenRideshareClick: () -> Unit,
+    onOpenSearchClick: () -> Unit,
+    onOpenTransactionHistoryClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: FavoriteViewModel = hiltViewModel(),
 ) {
@@ -65,6 +69,9 @@ fun FavoriteScreen(
     FavoriteScreen(
         uiState = uiState,
         onRequestPermissionsClick = { permissionLauncher.launch(uiState.requiredPermissions) },
+        onOpenRideshareClick = onOpenRideshareClick,
+        onOpenSearchClick = onOpenSearchClick,
+        onOpenTransactionHistoryClick = onOpenTransactionHistoryClick,
         modifier = modifier,
     )
 }
@@ -73,6 +80,9 @@ fun FavoriteScreen(
 fun FavoriteScreen(
     uiState: FavoriteUiState,
     onRequestPermissionsClick: () -> Unit,
+    onOpenRideshareClick: () -> Unit,
+    onOpenSearchClick: () -> Unit,
+    onOpenTransactionHistoryClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxSize()) {
@@ -82,6 +92,32 @@ fun FavoriteScreen(
                 .fillMaxWidth()
                 .padding(vertical = 16.dp),
         )
+        Button(
+            onClick = onOpenRideshareClick,
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+        ) {
+            Text("Open Rideshare")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = onOpenSearchClick,
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+        ) {
+            Text("Open Search Destination")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = onOpenTransactionHistoryClick,
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+        ) {
+            Text("Open Transaction History")
+        }
     }
 }
 

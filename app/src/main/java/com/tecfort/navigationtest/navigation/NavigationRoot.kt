@@ -31,6 +31,9 @@ import com.tecfort.navigationtest.ui.components.AppTopBar
 import com.tecfort.navigationtest.ui.details.DetailsScreen
 import com.tecfort.navigationtest.ui.favorite.FavoriteScreen
 import com.tecfort.navigationtest.ui.help.HelpScreen
+import com.tecfort.navigationtest.ui.rideshare.RideshareHomeScreen
+import com.tecfort.navigationtest.ui.search.SearchDestinationScreen
+import com.tecfort.navigationtest.ui.transactionhistory.TransactionHistoryScreen
 import com.tecfort.navigationtest.ui.home.HomeScreen
 import com.tecfort.navigationtest.ui.profilesetting.ProfileSettingScreen
 import com.tecfort.navigationtest.ui.review.ReviewScreen
@@ -168,7 +171,20 @@ fun NavigationRoot(
                         )
                     }
                     entry<Dest.Favorite> {
-                        FavoriteScreen()
+                        FavoriteScreen(
+                            onOpenRideshareClick = { backStack.add(Dest.RideshareHome) },
+                            onOpenSearchClick = { backStack.add(Dest.SearchDestination) },
+                            onOpenTransactionHistoryClick = { backStack.add(Dest.TransactionHistory) },
+                        )
+                    }
+                    entry<Dest.RideshareHome> {
+                        RideshareHomeScreen(onBackClick = { backStack.removeLastOrNull() })
+                    }
+                    entry<Dest.SearchDestination> {
+                        SearchDestinationScreen(onBackClick = { backStack.removeLastOrNull() })
+                    }
+                    entry<Dest.TransactionHistory> {
+                        TransactionHistoryScreen(onBackClick = { backStack.removeLastOrNull() })
                     }
                     entry<Dest.Setting> {
                         SettingScreen(
