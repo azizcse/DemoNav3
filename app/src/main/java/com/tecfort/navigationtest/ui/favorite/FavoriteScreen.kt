@@ -58,6 +58,7 @@ fun FavoriteScreen(
     onOpenRideshareClick: () -> Unit,
     onOpenSearchClick: () -> Unit,
     onOpenTransactionHistoryClick: () -> Unit,
+    onOpenMyAddressClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: FavoriteViewModel = hiltViewModel(),
 ) {
@@ -72,6 +73,7 @@ fun FavoriteScreen(
         onOpenRideshareClick = onOpenRideshareClick,
         onOpenSearchClick = onOpenSearchClick,
         onOpenTransactionHistoryClick = onOpenTransactionHistoryClick,
+        onOpenMyAddressClick = onOpenMyAddressClick,
         modifier = modifier,
     )
 }
@@ -83,6 +85,7 @@ fun FavoriteScreen(
     onOpenRideshareClick: () -> Unit,
     onOpenSearchClick: () -> Unit,
     onOpenTransactionHistoryClick: () -> Unit,
+    onOpenMyAddressClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxSize()) {
@@ -117,6 +120,15 @@ fun FavoriteScreen(
                 .fillMaxWidth(),
         ) {
             Text("Open Transaction History")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = onOpenMyAddressClick,
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+        ) {
+            Text("Open My Address")
         }
     }
 }

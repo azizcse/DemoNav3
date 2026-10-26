@@ -33,6 +33,7 @@ import com.tecfort.navigationtest.ui.favorite.FavoriteScreen
 import com.tecfort.navigationtest.ui.help.HelpScreen
 import com.tecfort.navigationtest.ui.rideshare.RideshareHomeScreen
 import com.tecfort.navigationtest.ui.search.SearchDestinationScreen
+import com.tecfort.navigationtest.ui.myaddress.MyAddressScreen
 import com.tecfort.navigationtest.ui.transactionhistory.TransactionHistoryScreen
 import com.tecfort.navigationtest.ui.home.HomeScreen
 import com.tecfort.navigationtest.ui.profilesetting.ProfileSettingScreen
@@ -175,6 +176,7 @@ fun NavigationRoot(
                             onOpenRideshareClick = { backStack.add(Dest.RideshareHome) },
                             onOpenSearchClick = { backStack.add(Dest.SearchDestination) },
                             onOpenTransactionHistoryClick = { backStack.add(Dest.TransactionHistory) },
+                            onOpenMyAddressClick = { backStack.add(Dest.MyAddress) },
                         )
                     }
                     entry<Dest.RideshareHome> {
@@ -185,6 +187,9 @@ fun NavigationRoot(
                     }
                     entry<Dest.TransactionHistory> {
                         TransactionHistoryScreen(onBackClick = { backStack.removeLastOrNull() })
+                    }
+                    entry<Dest.MyAddress> {
+                        MyAddressScreen(onBackClick = { backStack.removeLastOrNull() })
                     }
                     entry<Dest.Setting> {
                         SettingScreen(
