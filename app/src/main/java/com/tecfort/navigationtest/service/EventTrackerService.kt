@@ -104,6 +104,10 @@ class EventTrackerService : Service() {
                 payout = offer.payout,
             ),
         )
+        if (MainActivity.isInForeground) {
+            // Activity is already visible and collecting PendingNavigation; nothing more to do.
+            return
+        }
         val launch = Intent(this, MainActivity::class.java)
             .addFlags(
                 Intent.FLAG_ACTIVITY_NEW_TASK or

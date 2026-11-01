@@ -26,6 +26,22 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        isInForeground = true
+    }
+
+    override fun onStop() {
+        isInForeground = false
+        super.onStop()
+    }
+
+    companion object {
+        @Volatile
+        var isInForeground: Boolean = false
+            private set
+    }
+
     private fun showOverLockScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             setShowWhenLocked(true)
