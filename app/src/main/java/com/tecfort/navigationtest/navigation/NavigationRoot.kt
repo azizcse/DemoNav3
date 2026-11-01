@@ -8,6 +8,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
@@ -34,6 +35,7 @@ import com.tecfort.navigationtest.ui.help.HelpScreen
 import com.tecfort.navigationtest.ui.rideshare.RideshareHomeScreen
 import com.tecfort.navigationtest.ui.search.SearchDestinationScreen
 import com.tecfort.navigationtest.ui.myaddress.MyAddressScreen
+import com.tecfort.navigationtest.ui.orderdetails.OrderDetailsScreen
 import com.tecfort.navigationtest.ui.transactionhistory.TransactionHistoryScreen
 import com.tecfort.navigationtest.ui.home.HomeScreen
 import com.tecfort.navigationtest.ui.profilesetting.ProfileSettingScreen
@@ -83,6 +85,15 @@ fun NavigationRoot(
     // child like Details is pushed, NavDisplay's handler is enabled and wins.
     BackHandler(enabled = currentTop != null && currentTop != TopLevelDestination.HOME) {
         backStack.replaceRoot(Dest.Home)
+    }
+
+    LaunchedEffect(backStack) {
+        PendingNavigation.requests.collect { dest ->
+            if (backStack.lastOrNull() != dest) {
+                backStack.add(dest)
+            }
+            PendingNavigation.consumed()
+        }
     }
 
     // Takes precedence over the handler above while the drawer is open (most recently
@@ -190,6 +201,17 @@ fun NavigationRoot(
                     }
                     entry<Dest.MyAddress> {
                         MyAddressScreen(onBackClick = { backStack.removeLastOrNull() })
+                    }
+                    entry<Dest.OrderDetails> { key ->
+                        OrderDetailsScreen(
+                            orderId = key.orderId,
+                            restaurantName = key.restaurantName,
+                            pickupAddress = key.pickupAddress,
+                            dropoffAddress = key.dropoffAddress,
+                            distanceKm = key.distanceKm,
+                            payout = key.payout,
+                            onBackClick = { backStack.removeLastOrNull() },
+                        )
                     }
                     entry<Dest.Setting> {
                         SettingScreen(

@@ -48,6 +48,16 @@ sealed interface Dest : NavKey {
     @Serializable
     data object MyAddress : Dest
 
+    @Serializable
+    data class OrderDetails(
+        val orderId: String,
+        val restaurantName: String,
+        val pickupAddress: String,
+        val dropoffAddress: String,
+        val distanceKm: Double,
+        val payout: Double,
+    ) : Dest
+
     /**
      * @param currentDisplayName the value Setting currently holds, shown pre-filled when this
      *   screen opens - demonstrates passing a value forward, mirroring the value passed back.

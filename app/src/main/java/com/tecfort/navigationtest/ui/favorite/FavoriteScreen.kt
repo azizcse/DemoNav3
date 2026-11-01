@@ -43,7 +43,9 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import com.tecfort.navigationtest.service.EventTrackerService
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.health.connect.client.PermissionController
@@ -88,6 +90,7 @@ fun FavoriteScreen(
     onOpenMyAddressClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     Column(modifier = modifier.fillMaxSize()) {
         FavoriteCarousel(
             carouselItems = dummyCarouselItems(),
@@ -129,6 +132,15 @@ fun FavoriteScreen(
                 .fillMaxWidth(),
         ) {
             Text("Open My Address")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = { EventTrackerService.triggerDummyOffer(context) },
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxWidth(),
+        ) {
+            Text("Simulate New Order Offer")
         }
     }
 }
