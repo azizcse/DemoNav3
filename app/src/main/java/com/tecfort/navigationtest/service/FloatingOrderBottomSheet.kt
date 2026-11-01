@@ -9,8 +9,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
@@ -48,6 +51,8 @@ fun FloatingOrderBottomSheetContent(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .heightIn(max = 480.dp)
+                .verticalScroll(rememberScrollState())
                 .padding(start = 20.dp, end = 20.dp, top = 20.dp, bottom = 24.dp),
         ) {
             Box(
@@ -104,6 +109,60 @@ fun FloatingOrderBottomSheetContent(
                 fontWeight = FontWeight.Bold,
                 color = AccentGreen,
             )
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "%.1f km  •  ৳%.0f".format(offer.distanceKm, offer.payout),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = AccentGreen,
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "%.1f km  •  ৳%.0f".format(offer.distanceKm, offer.payout),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = AccentGreen,
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "%.1f km  •  ৳%.0f".format(offer.distanceKm, offer.payout),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = AccentGreen,
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "%.1f km  •  ৳%.0f".format(offer.distanceKm, offer.payout),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = AccentGreen,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "%.1f km  •  ৳%.0f".format(offer.distanceKm, offer.payout),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = AccentGreen,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "%.1f km  •  ৳%.0f".format(offer.distanceKm, offer.payout),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = AccentGreen,
+            )
+
+
+
 
             Spacer(modifier = Modifier.height(16.dp))
 
